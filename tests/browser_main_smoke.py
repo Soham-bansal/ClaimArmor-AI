@@ -8,11 +8,18 @@ with sync_playwright() as playwright:
     page.get_by_role("button", name="Sign in").click()
     assert page.get_by_text("Upload EDI-like batch", exact=True).count() == 0
     page.locator("#claims .claim").first.wait_for(timeout=10_000)
-    business_details = page.locator("details.secondary-details")
+    business_details = page.locator("details.secondary-details:not(.model-details)")
     assert business_details.get_attribute("open") is None
     business_details.locator("summary").click()
     assert page.get_by_role("button", name="Calculate scenario").is_visible()
     business_details.locator("summary").click()
+    model_details = page.locator("details.model-details")
+    assert model_details.get_attribute("open") is None
+    assert page.get_by_text("Approach comparison", exact=True).count() == 0
+    model_details.locator("summary").click()
+    assert page.get_by_text("Trained model performance", exact=True).is_visible()
+    assert model_details.locator(".metric").count() == 4
+    model_details.locator("summary").click()
     page.evaluate("""reviewQueueItems=Array.from({length:7},(_,i)=>({claim_id:`QUEUE-${i+1}`,route:'HOLD'}));reviewQueuePage=1;renderQueue()""")
     assert page.locator("#queue .claim").count() == 3
     assert "Page 1 of 3" in page.locator("#queue").inner_text()
