@@ -16,7 +16,7 @@ with sync_playwright() as playwright:
     page.get_by_role("button", name="Create claim", exact=True).click()
     page.get_by_text(f"Created {claim_id}.").wait_for(timeout=10_000)
     assert page.get_by_text("Upload CSV", exact=True).is_visible()
-    assert page.get_by_text("Upload EDI-like", exact=True).is_visible()
+    assert page.get_by_text("Upload EDI-like", exact=True).count() == 0
     page.get_by_role("button", name="CLM-HOLD-001 Rohan Kappor").click()
     page.get_by_role("button", name="Run controlled investigation").click()
     page.get_by_text("HOLD", exact=True).wait_for(timeout=20_000)

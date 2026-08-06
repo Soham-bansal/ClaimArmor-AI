@@ -6,6 +6,7 @@ with sync_playwright() as playwright:
     page = browser.new_page()
     page.goto("http://127.0.0.1:8765/", wait_until="networkidle")
     page.get_by_role("button", name="Sign in").click()
+    assert page.get_by_text("Upload EDI-like batch", exact=True).count() == 0
     scenario_panel = page.get_by_text("Prepared claim scenarios", exact=True).locator("xpath=ancestor::div[contains(@class,'card')]")
     page.locator("#claims .claim").first.wait_for(timeout=10_000)
     assert page.locator("#claims .claim").count() == 4
