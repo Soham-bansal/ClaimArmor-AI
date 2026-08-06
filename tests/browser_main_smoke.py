@@ -11,6 +11,10 @@ with sync_playwright() as playwright:
     assert page.locator("#claims .claim").count() == 4
     for route in ("CLEAR", "HOLD", "HUMAN REVIEW", "UNDETERMINED"):
         assert route in scenario_panel.inner_text()
+    page.get_by_role("button", name="Create one claim").click()
+    assert page.locator("#newPayer option").all_text_contents() == ["Employer plan", "Medicare", "Auto insurer"]
+    assert page.locator("#newPayer").input_value() == "EMPLOYER_PLAN"
+    page.get_by_role("button", name="Cancel").click()
     page.get_by_text("CLM-HOLD-001", exact=True).click()
     page.get_by_role("button", name="Run investigation").click()
     page.get_by_text("Decision comparison", exact=True).wait_for(timeout=20_000)
