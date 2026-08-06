@@ -1,0 +1,4 @@
+claim_id,member_name,member_dob,member_id,service_date,amount,submitted_payer,claim_type,accident_related,diagnosis_group
+CLM-CSV-001,Rohan Kapoor,1988-11-03,MBR-1002,2026-08-05,17500,EMPLOYER_PLAN,TRAUMA,true,ACCIDENT
+CLM-CSV-002,Asha Mehta,1958-04-12,MBR-1001,2026-08-05,8400,EMPLOYER_PLAN,MEDICAL,false,GENERAL
+

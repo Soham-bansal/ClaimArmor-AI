@@ -1,0 +1,43 @@
+{
+  "model_type": "Calibrated XGBoost",
+  "model_version": "overpayment-risk-v2-calibrated",
+  "trained_at": "2026-08-06T13:52:28.810624+00:00",
+  "dataset_rows": 3000,
+  "training_rows": 2340,
+  "test_rows": 660,
+  "positive_rate": 0.348,
+  "threshold": 0.5,
+  "accuracy": 0.8606,
+  "precision": 0.8317,
+  "recall": 0.7522,
+  "f1": 0.79,
+  "roc_auc": 0.9422,
+  "pr_auc": 0.9002,
+  "brier_score": 0.0879,
+  "calibration": "3-fold sigmoid calibration on synthetic training data",
+  "confusion_matrix": {
+    "true_negative": 395,
+    "false_positive": 35,
+    "false_negative": 57,
+    "true_positive": 173
+  },
+  "total_test_overpayment_value": 1139191.46,
+  "detected_test_overpayment_value": 952214.98,
+  "value_weighted_recall": 0.8359,
+  "features": [
+    "claim_amount_log",
+    "active_coverage_count",
+    "has_medicare",
+    "has_employer",
+    "has_auto",
+    "accident_related",
+    "age_on_service",
+    "match_confidence",
+    "missing_member_id",
+    "submitted_is_employer",
+    "submitted_is_medicare",
+    "submitted_is_auto",
+    "coverage_overlap"
+  ],
+  "data_statement": "Trained and evaluated only on reproducible synthetic ClaimArmor scenarios."
+}

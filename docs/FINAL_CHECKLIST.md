@@ -1,0 +1,24 @@
+# Final acceptance checklist
+
+- [x] Synthetic dataset is reproducible and labeled.
+- [x] XGBoost artifact is trained and loaded by runtime inference.
+- [x] Holdout metrics and three-approach comparison are generated.
+- [x] Claims enter through form, API, CSV, EDI-like batch, and simulated stream.
+- [x] Splink member matching and service-date coverage timeline execute.
+- [x] COB rules and LangGraph investigation execute.
+- [x] CMS evidence includes source metadata and hashes.
+- [x] eCFR evidence, versioned policy admin, and PDF text extraction execute.
+- [x] Verification critic challenges unsupported holds.
+- [x] Human review and simulated writeback persist.
+- [x] Roles are enforced by the API.
+- [x] Audit chain can be cryptographically verified.
+- [x] ROI calculations expose assumptions.
+- [x] SQLite and PostgreSQL URLs share one persistence interface.
+- [x] Security headers, input validation, source allowlist, and login throttling exist.
+- [x] Unit, workflow, authorization, evaluation, and tamper tests pass.
+- [x] Architecture, model card, limitations, evaluation, demo, and runbook exist.
+- [x] React dashboard source and verified production bundle exist.
+- [x] Replay, request-information, reinvestigation, and simulated writeback execute.
+- [x] Prometheus endpoint, OpenTelemetry hook, and Grafana provisioning exist.
+- [ ] Real payer-data validation — intentionally out of scope.
+- [ ] Production security/compliance certification — intentionally out of scope.

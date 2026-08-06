@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-08-06T13:42:33.327370+00:00",
+  "cases": 48,
+  "true_positive": 36,
+  "false_positive": 0,
+  "false_negative": 4,
+  "precision": 1.0,
+  "recall": 0.9,
+  "f1": 0.9474,
+  "splink_cases": 40,
+  "statement": "Evaluated only on synthetic linked identities and explicit non-match controls."
+}

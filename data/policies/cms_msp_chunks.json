@@ -1,0 +1,112 @@
+[
+  {
+    "policy_id": "CMS-MSP-GENERAL-001",
+    "title": "Medicare Secondary Payer",
+    "section": "Overview",
+    "source_url": "https://www.cms.gov/medicare/coordination-benefits-recovery/overview/secondary-payer",
+    "authority": "Centers for Medicare & Medicaid Services",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["medicare", "primary payer", "secondary payer", "coordination of benefits"],
+    "text": "Medicare Secondary Payer describes situations in which another entity has responsibility to pay before Medicare. Medicare remains primary when no other insurance or coverage has primary responsibility, subject to the applicable conditions."
+  },
+  {
+    "policy_id": "CMS-MSP-WORKING-AGED-SMALL",
+    "title": "Medicare Secondary Payer",
+    "section": "Working aged and employer group health plan — employer under 20 employees",
+    "source_url": "https://www.cms.gov/medicare/coordination-benefits-recovery/overview/secondary-payer",
+    "authority": "Centers for Medicare & Medicaid Services",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["working aged", "employer size", "under 20", "medicare primary", "group health plan"],
+    "text": "For a beneficiary age 65 or older covered through current employment when the employer has fewer than 20 employees, CMS guidance identifies Medicare as primary and the group health plan as secondary."
+  },
+  {
+    "policy_id": "CMS-MSP-WORKING-AGED-LARGE",
+    "title": "Medicare Secondary Payer",
+    "section": "Working aged and employer group health plan — employer 20 or more employees",
+    "source_url": "https://www.cms.gov/medicare/coordination-benefits-recovery/overview/secondary-payer",
+    "authority": "Centers for Medicare & Medicaid Services",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["working aged", "employer size", "20 employees", "employer primary", "medicare secondary"],
+    "text": "For a beneficiary age 65 or older covered through current employment when the employer has 20 or more employees, CMS guidance identifies the employer group health plan as primary and Medicare as secondary."
+  },
+  {
+    "policy_id": "CMS-MSP-DISABILITY-LARGE",
+    "title": "Medicare Secondary Payer",
+    "section": "Disability and employer group health plan",
+    "source_url": "https://www.cms.gov/medicare/coordination-benefits-recovery/overview/secondary-payer",
+    "authority": "Centers for Medicare & Medicaid Services",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["disability", "100 employees", "employer primary", "medicare secondary"],
+    "text": "For a disabled beneficiary with group health coverage through current employment and an employer of 100 or more employees, CMS guidance identifies the group health plan as primary and Medicare as secondary."
+  },
+  {
+    "policy_id": "CMS-MSP-LIABILITY-001",
+    "title": "Medicare Secondary Payer",
+    "section": "Liability, no-fault, and workers compensation",
+    "source_url": "https://www.cms.gov/medicare/coordination-benefits-recovery/overview/secondary-payer",
+    "authority": "Centers for Medicare & Medicaid Services",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["accident", "auto", "liability", "no-fault", "workers compensation", "conditional payment"],
+    "text": "Liability, no-fault, or workers compensation coverage can have primary payment responsibility for related services. CMS may make a conditional payment when the responsible insurer will not pay promptly, subject to recovery."
+  },
+  {
+    "policy_id": "CMS-PROVIDER-INQUIRY-001",
+    "title": "Your Billing Responsibilities",
+    "section": "Determine whether Medicare is primary or secondary",
+    "source_url": "https://www.cms.gov/medicare/coordination-benefits-recovery/provider-services/your-billing-responsibilities",
+    "authority": "Centers for Medicare & Medicaid Services",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["questionnaire", "provider", "billing", "other coverage", "missing information"],
+    "text": "Providers must determine whether Medicare is primary or secondary and should ask the beneficiary about other coverage that may be primary. Missing payer-order facts should be collected rather than assumed."
+  },
+  {
+    "policy_id": "CMS-COB-RECOVERY-001",
+    "title": "Coordination of Benefits and Recovery Overview",
+    "section": "Benefits Coordination and Recovery Center",
+    "source_url": "https://www.cms.gov/medicare/coordination-benefits-recovery/overview",
+    "authority": "Centers for Medicare & Medicaid Services",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["coordination of benefits", "recovery", "mistaken payment", "other insurance"],
+    "text": "COB rules decide which entity pays first when a beneficiary has Medicare and other insurance. CMS may pursue recovery if later information shows that Medicare made a primary payment by mistake."
+  },
+  {
+    "policy_id": "CMS-MSP-MANUAL-CH1",
+    "title": "Medicare Secondary Payer Manual",
+    "section": "Chapter 1 — General MSP Overview",
+    "source_url": "https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/downloads/msp105c01.pdf",
+    "authority": "Centers for Medicare & Medicaid Services",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["manual", "general overview", "statutory provisions", "payer order"],
+    "text": "The official Medicare Secondary Payer Manual provides detailed operational guidance for the statutory circumstances in which Medicare is secondary. Case determinations should retain the applicable manual chapter and section as evidence."
+  },
+  {
+    "policy_id": "ECFR-42-411-001",
+    "title": "42 CFR Part 411 - Exclusions From Medicare and Limitations on Medicare Payment",
+    "section": "Subpart B - Insurance Coverage That Limits Medicare Payment",
+    "source_url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-411",
+    "authority": "Electronic Code of Federal Regulations",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["federal regulation", "medicare secondary payer", "employer group health plan", "liability", "workers compensation"],
+    "text": "42 CFR Part 411 contains federal rules that limit Medicare payment when payment has been made or can reasonably be expected from an employer group health plan, liability insurance, no-fault insurance, or workers compensation. The applicable subpart and claim facts must be checked for each determination."
+  },
+  {
+    "policy_id": "ECFR-42-411-EFFECTIVE-DATE",
+    "title": "42 CFR Part 411 - Current eCFR Version",
+    "section": "Currency and authority metadata",
+    "source_url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-411",
+    "authority": "Electronic Code of Federal Regulations",
+    "jurisdiction": "US Federal",
+    "last_verified": "2026-08-06",
+    "topics": ["effective date", "regulation version", "audit evidence", "federal regulation"],
+    "text": "The eCFR page supplies current regulatory text and amendment metadata. ClaimArmor records the source URL, verification date, section, and document hash so an investigation can be replayed against a known policy version."
+  }
+]
