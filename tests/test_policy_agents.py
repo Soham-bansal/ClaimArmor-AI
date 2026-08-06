@@ -6,6 +6,8 @@ from unittest.mock import patch
 from app.schemas import ClaimInput
 from app.seed import COVERAGES, DEMO_CLAIMS, MEMBERS
 from app.services.agents import run_agents
+from app.services.agents import verify_node
+from app.schemas import DecisionRoute
 from app.services.matching import active_coverages, match_member
 from app.services.policy import evaluate_retrieval, retrieve_evidence
 from app.services.risk import score_risk
@@ -13,6 +15,31 @@ from app.services.rules import evaluate_rules
 
 
 class PolicyAndAgentTests(unittest.TestCase):
+    def test_speculative_ai_review_request_does_not_override_supported_clear_route(self):
+        state = {
+            "claim": {"accident_related": False},
+            "match": {"confidence": 1.0},
+            "timeline": [{"payer": "EMPLOYER_PLAN", "kind": "EMPLOYER", "active_on_service_date": True}],
+            "route": DecisionRoute.CLEAR,
+            "payer": "EMPLOYER_PLAN",
+            "confidence": 0.95,
+            "evidence": [{"policy_id": "CMS-PROVIDER-INQUIRY-001", "text": "Providers should collect payer facts."}],
+            "ai_primacy": {"proposal": {"primary_payer": "EMPLOYER_PLAN"}},
+            "trace": [],
+        }
+        critique = {
+            "citation_supported": True,
+            "validated_policy_ids": ["CMS-PROVIDER-INQUIRY-001"],
+            "contradictions": ["Generic request to collect Medicare eligibility for every member"],
+            "missing_facts": ["Speculative Medicare eligibility status"],
+            "requires_human_review": True,
+            "confidence": 0.8,
+        }
+        with patch("app.services.agents.run_structured_agent", return_value=(critique, {"mode": "gemini", "used": True})):
+            result = verify_node(state)
+        self.assertEqual(result["route"], DecisionRoute.CLEAR)
+        self.assertEqual(result["contradictions"], [])
+
     def test_accident_retrieval_returns_liability_evidence(self):
         results = retrieve_evidence("car accident with active auto coverage")
         self.assertEqual(results[0]["policy_id"], "CMS-MSP-LIABILITY-001")

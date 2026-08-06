@@ -9,7 +9,8 @@ def _prompt(context: dict) -> str:
     return (
         "You are a claims-audit explanation assistant. Use only the supplied JSON evidence. "
         "Do not add facts, legal conclusions, or payment authorization. Produce a concise reviewer explanation "
-        "that names evidence policy IDs and clearly states uncertainty.\n\n"
+        "that names evidence policy IDs and clearly states uncertainty. The supplied route is authoritative: "
+        "explain that route and do not recommend or state a different final route.\n\n"
         + json.dumps(context, default=str)
     )
 
@@ -117,4 +118,10 @@ def run_structured_agent(role: str, instructions: str, context: dict, fallback: 
 
 def enhance_explanation(context: dict, fallback: str) -> tuple[str, dict]:
     text, metadata = _provider_call(_prompt(context))
-    return (text or fallback), metadata
+    if not text:
+        return fallback, metadata
+    route = str(context.get("route", ""))
+    lowered = text.casefold().replace("_", " ")
+    if route != "HUMAN_REVIEW" and ("requires human review" in lowered or "route: human review" in lowered):
+        return fallback, {**metadata, "accepted": False, "reason": "ExplanationRouteConflict"}
+    return text, metadata

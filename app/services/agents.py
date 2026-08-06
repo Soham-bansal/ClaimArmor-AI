@@ -114,9 +114,11 @@ def verify_node(state: InvestigationState) -> dict:
         invalid_ids = set(critique.get("validated_policy_ids", [])) - evidence_ids
         if invalid_ids:
             contradictions.append("Verifier cited policy IDs that were not retrieved; human review is required.")
-        contradictions.extend(f"AI critic: {item}" for item in critique.get("contradictions", [])[:5] if isinstance(item, str))
-        if critique.get("requires_human_review") and not critique.get("contradictions"):
-            contradictions.append("AI critic requested human review because evidence or claim facts remain incomplete.")
+        # Provider-written contradictions, a bare requires_human_review flag,
+        # and speculative missing facts remain visible inside ai_critique but
+        # are advisory. Only the code-verified checks above may alter the route.
+        # This prevents generic policy cautions (for example, asking every
+        # member about Medicare) from turning all claims into HUMAN_REVIEW.
     route = DecisionRoute.HUMAN_REVIEW if contradictions else state["route"]
     confidence = min(state["confidence"], 0.60) if contradictions else state["confidence"]
     output = {"passed": not contradictions, "contradictions": contradictions, "checked_policy_ids": sorted(evidence_ids), "ai_critique": critique, "provider": provider}
