@@ -16,6 +16,12 @@ with sync_playwright() as playwright:
     assert page.locator("#newPayer option").all_text_contents() == ["Employer plan", "Medicare", "Auto insurer"]
     assert page.locator("#newPayer").input_value() == "EMPLOYER_PLAN"
     page.get_by_role("button", name="Cancel").click()
+    page.locator("#csvFile").set_input_files("data/samples/claims_upload_two_rows.csv")
+    page.get_by_role("button", name="Upload CSV").click()
+    page.get_by_text("Uploaded claims", exact=True).wait_for(timeout=10_000)
+    assert page.locator("#uploadedClaims .uploaded-item").count() == 2
+    page.locator("#uploadedClaims .uploaded-item").nth(1).get_by_role("button", name="Open claim").click()
+    page.get_by_text("CLM-BATCH-102", exact=True).wait_for(timeout=10_000)
     page.get_by_text("CLM-HOLD-001", exact=True).click()
     page.get_by_role("button", name="Run investigation").click()
     page.get_by_text("Decision comparison", exact=True).wait_for(timeout=20_000)
