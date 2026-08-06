@@ -1,0 +1,3 @@
+claim_id,member_name,member_dob,member_id,service_date,amount,submitted_payer,claim_type,accident_related,diagnosis_group
+CLM-BATCH-101,Rohan Kapoor,1988-11-03,MBR-1002,2026-08-07,18000,EMPLOYER_PLAN,TRAUMA,true,ACCIDENT
+CLM-BATCH-102,Maya Iyer,1961-07-24,MBR-1003,2026-08-07,32000,EMPLOYER_PLAN,INPATIENT,false,GENERAL
