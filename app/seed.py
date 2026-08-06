@@ -22,6 +22,7 @@ DEMO_CLAIMS = [
     {"claim_id": "CLM-SAFE-001", "member_name": "Rohan Kapoor", "member_dob": "1988-11-03", "member_id": "MBR-1002", "service_date": "2025-06-12", "amount": 1250, "submitted_payer": "EMPLOYER_PLAN", "claim_type": "MEDICAL", "accident_related": False, "diagnosis_group": "GENERAL"},
     {"claim_id": "CLM-HOLD-001", "member_name": "Rohan Kappor", "member_dob": "1988-11-03", "member_id": None, "service_date": "2026-08-01", "amount": 20000, "submitted_payer": "EMPLOYER_PLAN", "claim_type": "TRAUMA", "accident_related": True, "diagnosis_group": "ACCIDENT"},
     {"claim_id": "CLM-REVIEW-001", "member_name": "Maya Iyer", "member_dob": "1961-07-24", "member_id": "MBR-1003", "service_date": "2026-08-02", "amount": 50000, "submitted_payer": "EMPLOYER_PLAN", "claim_type": "INPATIENT", "accident_related": False, "diagnosis_group": "GENERAL"},
+    {"claim_id": "CLM-UNDETERMINED-001", "member_name": "Rohan Kapoor", "member_dob": "1988-11-03", "member_id": "MBR-1002", "service_date": "2023-06-12", "amount": 5000, "submitted_payer": "EMPLOYER_PLAN", "claim_type": "MEDICAL", "accident_related": False, "diagnosis_group": "GENERAL"},
 ]
 
 

@@ -45,6 +45,11 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(result.route.value, "HUMAN_REVIEW")
         self.assertTrue(any(rule["rule_id"] == "MSP-DUAL-001" for rule in result.rules))
 
+    def test_claim_without_active_coverage_is_undetermined(self):
+        result = self.run_claim(3)
+        self.assertEqual(result.route.value, "UNDETERMINED")
+        self.assertTrue(any(rule["rule_id"] == "COB-NO-COVERAGE-001" for rule in result.rules))
+
 
 if __name__ == "__main__":
     unittest.main()
