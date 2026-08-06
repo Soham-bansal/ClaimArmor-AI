@@ -7,8 +7,17 @@ with sync_playwright() as playwright:
     page.goto("http://127.0.0.1:8765/", wait_until="networkidle")
     page.get_by_role("button", name="Sign in").click()
     assert page.get_by_text("Upload EDI-like batch", exact=True).count() == 0
-    scenario_panel = page.get_by_text("Prepared claim scenarios", exact=True).locator("xpath=ancestor::div[contains(@class,'card')]")
     page.locator("#claims .claim").first.wait_for(timeout=10_000)
+    page.evaluate("""reviewQueueItems=Array.from({length:7},(_,i)=>({claim_id:`QUEUE-${i+1}`,route:'HOLD'}));reviewQueuePage=1;renderQueue()""")
+    assert page.locator("#queue .claim").count() == 3
+    assert "Page 1 of 3" in page.locator("#queue").inner_text()
+    page.locator("#queue").get_by_role("button", name="Next").click()
+    assert page.locator("#queue .claim").count() == 3
+    assert "Page 2 of 3" in page.locator("#queue").inner_text()
+    page.locator("#queue").get_by_role("button", name="Next").click()
+    assert page.locator("#queue .claim").count() == 1
+    assert "Page 3 of 3" in page.locator("#queue").inner_text()
+    scenario_panel = page.get_by_text("Prepared claim scenarios", exact=True).locator("xpath=ancestor::div[contains(@class,'card')]")
     assert page.locator("#claims .claim").count() == 4
     for route in ("CLEAR", "HOLD", "HUMAN REVIEW", "UNDETERMINED"):
         assert route in scenario_panel.inner_text()
